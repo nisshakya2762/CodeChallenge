@@ -36,7 +36,7 @@ public class CustomerController {
     }
 
     @GetMapping("/search")
-    public List<CustomerDTO> search(@RequestParam(value = "first_name", required = false) String firstName,
+    public List<CustomerDTO> search(@RequestParam(value = "firstName", required = false) String firstName,
                        @RequestParam(value = "last_name", required = false) String lastName,
                        @RequestParam(value = "email", required = false) String email,
                        @RequestParam(value = "ip", required = false) String ip,

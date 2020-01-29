@@ -32,8 +32,8 @@ public class CustomerServiceIT {
     public void setUp() {
         customerRepository.deleteAll();
         Customer c = new Customer();
-        c.setFirst_name("Nishant");
-        c.setLast_name("Shakya");
+        c.setFirstName("Nishant");
+        c.setLastName("Shakya");
         c.setEmail("nish@gmail.com");
         c.setCreated_by("2020-01-26T05:06:00Z");
         c.setIp("192.168.1.1");
@@ -49,14 +49,14 @@ public class CustomerServiceIT {
     public void testFindAllCustomers() throws Exception {
         List<CustomerDTO> customerDTO = customerService.getAllCustomer();
         Assert.assertEquals("size expected is 1", 1, customerDTO.size());
-        Assert.assertEquals("failure - expected name is Nishant", "Nishant", customerDTO.get(0).getFirst_name());
+        Assert.assertEquals("failure - expected name is Nishant", "Nishant", customerDTO.get(0).getFirstName());
     }
 
     @Test
     public void testAddCustomer() throws Exception {
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setFirst_name("Emp 1");
-        customerDTO.setLast_name("Emp LastName 1");
+        customerDTO.setFirstName("Emp 1");
+        customerDTO.setLastName("Emp LastName 1");
         customerDTO.setEmail("nish@gmail.com");
         customerDTO.setCreated_at("2020-01-26T05:06:00Z");
         customerDTO.setIp("192.168.1.1");
@@ -76,21 +76,21 @@ public class CustomerServiceIT {
     @Test
     public void updateCustomer() throws Exception{
         CustomerDTO customerDTO = new CustomerDTO();
-        customerDTO.setFirst_name("New emp1");
-        customerDTO.setLast_name("new emp last name");
+        customerDTO.setFirstName("New emp1");
+        customerDTO.setLastName("new emp last name");
         customerDTO.setEmail("nish@gmail.com");
         customerDTO.setCreated_at("2020-01-27T05:06:00Z");
         customerDTO.setIp("192.168.1.1");
         customerService.updateCustomer(customerDTO, customerInDB.getId());
         CustomerDTO updateCustomer = customerService.getCustomerById(customerInDB.getId());
-        Assert.assertEquals("failure - firstname should be updated as New emp1", "New emp1", updateCustomer.getFirst_name());
+        Assert.assertEquals("failure - firstname should be updated as New emp1", "New emp1", updateCustomer.getFirstName());
     }
 
     @Test
     public void searchCustomerReturningCustomers() throws Exception {
         List<CustomerDTO> customerDTOS = customerService.searchCustomer("Nishant", "Shakya", null, null, null, null);
         Assert.assertEquals("failure expected size of 1",1, customerDTOS.size());
-        Assert.assertEquals("failure expected first name is Nishant","Nishant", customerDTOS.get(0).getFirst_name());
+        Assert.assertEquals("failure expected first name is Nishant","Nishant", customerDTOS.get(0).getFirstName());
     }
 
 
@@ -102,7 +102,7 @@ public class CustomerServiceIT {
     @Test
     public void getCustomerbyId() throws Exception{
         CustomerDTO customerDTO=customerService.getCustomerById(customerInDB.getId());
-        Assert.assertEquals("failure displaying customer by Id","Nishant",customerDTO.getFirst_name());
+        Assert.assertEquals("failure displaying customer by Id","Nishant",customerDTO.getFirstName());
     }
 }
 

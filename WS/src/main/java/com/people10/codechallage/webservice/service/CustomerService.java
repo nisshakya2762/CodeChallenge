@@ -55,10 +55,10 @@ public class CustomerService {
             public Predicate toPredicate(Root<Customer> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 if(!StringUtils.isEmpty(firstName)) {
-                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("first_name"),firstName)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("firstName"),firstName)));
                 }
                 if(!StringUtils.isEmpty(lastName)) {
-                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("last_name"),lastName)));
+                    predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("lastName"),lastName)));
                 }
                 if(!StringUtils.isEmpty(email)) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("email"),email)));
